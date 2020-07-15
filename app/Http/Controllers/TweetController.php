@@ -6,6 +6,14 @@
 
     class TweetController extends Controller
     {
+
+        public function index()
+        {
+            return view('tweets.index', [
+                'tweets' => auth()->user()->timeline(),
+            ]);
+        }
+
         public function store()
         {
             $attributes = \request()->validate(['body' => 'required|max:255']);
@@ -15,6 +23,6 @@
                 'body' => $attributes['body']
             ]);
 
-            return redirect('/home');
+            return redirect()->home();
         }
     }
