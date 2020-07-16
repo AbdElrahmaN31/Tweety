@@ -52,7 +52,7 @@
 
         public function getAvatarAttribute()
         {
-            return "https://i.pravatar.cc/40?u=" . $this->email;
+            return "https://i.pravatar.cc/200?u=" . $this->email;
         }
 
         public function tweets()
@@ -63,5 +63,10 @@
         public function follow(User $user)
         {
             return $this->follows()->save($user);
+        }
+
+        public function getRouteKeyName()
+        {
+            return 'name';
         }
     }

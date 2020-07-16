@@ -12,7 +12,9 @@
         <footer class="flex justify-between">
             <img src="{{ auth()->user()->avatar }}"
                  class="rounded-full mr-2"
-                 alt="your avatar">
+                 alt="your avatar"
+                 style="width: 40px; height: 40px"
+            >
 
             <button type="submit"
                     class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white lg:origin-bottom-left">

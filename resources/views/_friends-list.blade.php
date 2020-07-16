@@ -1,17 +1,18 @@
 <div class="bg-gray-200 rounded-lg py-4 px-6">
-<h3 class="font-bold text-xl mb-4">Following</h3>
-<ul>
-    @foreach(auth()->user()->follows as $user)
-        <li class="mb-4">
-            <div class="flex items-center text-sm">
-                <img src="{{ $user->avatar }}"
-                     class="rounded-full mr-2"
-                     alt="{{ $user->name }}"
-                >
-                {{ $user->name }}
-            </div>
-
-        </li>
-    @endforeach
-</ul>
+    <h3 class="font-bold text-xl mb-4">Following</h3>
+    <ul>
+        @foreach(auth()->user()->follows as $user)
+            <li class="mb-4">
+                <a href="{{ route('profile', $user) }}"
+                   class="flex items-center text-sm">
+                    <img src="{{ $user->avatar }}"
+                         class="rounded-full mr-2"
+                         alt="{{ $user->name }}"
+                         style="width: 40px; height: 40px"
+                    >
+                    {{ $user->name }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
 </div>
