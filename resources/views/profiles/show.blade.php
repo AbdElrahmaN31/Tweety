@@ -9,11 +9,12 @@
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
-            <div>
-                <a class="rounded-full border border-gray-300 py-2 px-4 text-black lg:origin-bottom-left text-xs mr-2">Edit
-                    Profile</a>
-                <a class="bg-blue-500 rounded-full border border-gray-300 py-2 px-4 text-white lg:origin-bottom-left text-xs">Follow
-                    me</a>
+            <div class="flex">
+                <a
+                    class="rounded-full shadow py-2 px-4 text-black text-xs mr-2">
+                    Edit Profile
+                </a>
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
         <p class="text-sm">
