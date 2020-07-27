@@ -1,10 +1,19 @@
 <x-app>
     <header class="mb-6 relative">
-        <img src="/images/default-profile-banner.jpg"
-             alt=""
-             class="mb-2"
-        >
-        <div class="flex justify-between items-center mb-4">
+        <div class="relative">
+            <img src="/images/default-profile-banner.jpg"
+                 alt=""
+                 class="mb-2"
+            >
+            <img
+                src="{{$user->avatar}}"
+                class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
+                style="left: 50%; width: 150px"
+                alt={{ $user->name }}
+            >
+        </div>
+
+        <div class="flex justify-between items-center mb-6">
             <div>
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
@@ -22,12 +31,6 @@
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
             original form, accompanied by English versions from the 1914 translation by H. Rackham.
         </p>
-        <img
-            src="{{$user->avatar}}"
-            class="rounded-full mr-2 absolute"
-            style="width: 150px; left: calc(50% - 75px); top: 138px"
-            alt={{ $user->name }}
-        >
     </header>
 
     @include('_timeline',[

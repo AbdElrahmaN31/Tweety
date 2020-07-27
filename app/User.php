@@ -43,7 +43,8 @@
 
             return Tweet::whereIn('user_id', $friends)
                 ->orWhere('user_id', $this->id)
-                ->latest()->get();
+                ->latest()
+                ->get();
         }
 
         public function getAvatarAttribute()
@@ -53,7 +54,7 @@
 
         public function tweets()
         {
-            return $this->hasMany(Tweet::class);
+            return $this->hasMany(Tweet::class)->latest();
         }
 
         public function path()
