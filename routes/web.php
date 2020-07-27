@@ -20,12 +20,12 @@
         Route::get('/tweets', 'TweetController@index')->name('home');
         Route::post('/tweets', 'TweetController@store');
 
-        Route::post('/profiles/{user:name}/follow', 'FollowController@store')->name('follow');
-        Route::get('/profiles/{user:name}/edit', 'ProfileController@edit')
+        Route::post('/profiles/{user:username}/follow', 'FollowController@store')->name('follow');
+        Route::get('/profiles/{user:username}/edit', 'ProfileController@edit')
             ->name('edit')
             ->middleware('can:edit,user');
     });
 
-    Route::get('/profiles/{user:name}', 'ProfileController@show')->name('profile');
+    Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profile');
 
     Auth::routes();

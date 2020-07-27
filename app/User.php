@@ -16,7 +16,7 @@
          * @var array
          */
         protected $fillable = [
-            'name', 'email', 'password',
+            'name', 'username', 'email', 'password',
         ];
 
         /**
@@ -59,7 +59,7 @@
 
         public function path($append = '')
         {
-            $path =  route('profile', $this->name);
+            $path = route('profile', $this->username);
 
             return $append ? "{$path}/{$append}" : $path;
         }
