@@ -10,7 +10,7 @@
         <hr class="my-4"/>
 
         <footer class="flex justify-between">
-            <img src="{{ auth()->user()->avatar }}"
+            <img src="{{ current_user()->avatar }}"
                  class="rounded-full mr-2"
                  alt="your avatar"
                  style="width: 40px; height: 40px"

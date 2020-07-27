@@ -8,7 +8,7 @@
     {
         public function store(User $user)
         {
-            auth()->user()->toggleFollowing($user);
+            current_user()->toggleFollowing($user);
             return back();
         }
     }
