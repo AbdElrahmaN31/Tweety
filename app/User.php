@@ -16,7 +16,7 @@
          * @var array
          */
         protected $fillable = [
-            'name', 'username', 'email', 'password',
+            'name', 'username', 'email', 'avatar', 'password',
         ];
 
         /**
@@ -47,9 +47,9 @@
                 ->get();
         }
 
-        public function getAvatarAttribute()
+        public function getAvatarAttribute($value)
         {
-            return "https://i.pravatar.cc/200?u=" . $this->email;
+            return asset($value ? 'storage/' . $value : '/images/default-avatar.jpeg');
         }
 
         public function tweets()
