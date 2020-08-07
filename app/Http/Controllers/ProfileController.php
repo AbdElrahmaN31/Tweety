@@ -27,10 +27,13 @@
                 'email' => ['string', 'required', 'email', 'max:255',
                     Rule::unique('users')->ignore($user),
                 ],
-                'avatar' => ['required', 'file'],
+                'avatar' => ['file'],
                 'password' => ['string', 'required', 'min:8', 'max:255', 'confirmed'],
             ]);
-            $attributes['avatar'] = request('avatar')->store('avatars');
+
+            if (request('avatar')) {
+                $attributes['avatar'] = request('avatar')->store('avatars');
+            }
 
             $user->update($attributes);
 
