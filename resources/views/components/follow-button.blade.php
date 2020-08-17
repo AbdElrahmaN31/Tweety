@@ -1,5 +1,5 @@
 @auth()
-    @unless ((current_user()->isNot($user)))
+    @if ((current_user()->isNot($user)))
         <form method="POST" action="{{ $user->path('follow') }}">
             @csrf
             <button
@@ -8,5 +8,5 @@
                 {{ current_user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
             </button>
         </form>
-    @endunless
+    @endif
 @endauth()

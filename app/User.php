@@ -45,7 +45,7 @@
             return Tweet::whereIn('user_id', $friends)
                 ->orWhere('user_id', $this->id)
                 ->latest()
-                ->get();
+                ->paginate(50);
         }
 
         public function getAvatarAttribute($value)

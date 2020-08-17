@@ -6,10 +6,10 @@
 
     class ExploreController extends Controller
     {
-        public function index()
+        public function __invoke()
         {
             return view('explore',[
-                'users' => User::paginate(5),
+                'users' => User::latest()->paginate(50),
             ]);
         }
     }

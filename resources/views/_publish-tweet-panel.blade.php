@@ -4,12 +4,13 @@
         <textarea name="body"
                   class="w-full"
                   placeholder="What's up doc?"
-{{--                  required--}}
+                  autofocus
+                  required
         ></textarea>
 
         <hr class="my-4"/>
 
-        <footer class="flex justify-between">
+        <footer class="flex justify-between items-center">
             <img src="{{ current_user()->avatar }}"
                  class="rounded-full mr-2"
                  alt="your avatar"
@@ -17,8 +18,8 @@
             >
 
             <button type="submit"
-                    class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white lg:origin-bottom-left">
-                Tweet-a-roo!
+                    class="bg-blue-500 hover:bg-blue-600 rounded-lg shadow px-10 text-white text-sm h-10">
+                Publish
             </button>
         </footer>
     </form>
